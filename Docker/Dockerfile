@@ -20,11 +20,11 @@ RUN apt install --fix-missing --fix-broken -y -q \
 RUN mkdir -p /app/ifi-tidal-release
 WORKDIR /app/ifi-tidal-release
 
-COPY Docker/src/bin/ bin
-COPY Docker/src/pa_devs/ .
-COPY Docker/src/play .
-COPY Docker/src/id_certificate id_certificate
-COPY Docker/src/licenses licenses
+COPY src/bin/ bin
+COPY src/pa_devs/ .
+COPY src/play .
+COPY src/id_certificate id_certificate
+COPY src/licenses licenses
 RUN chmod a+x bin/* 
 
 # Configure ALSA to use the optical audio output by default
@@ -43,6 +43,6 @@ EOF
 
 ENV PA_ALSA_PLUGHW=1
 
-COPY Docker/entrypoint.sh /
+COPY entrypoint.sh /
 RUN chmod a+x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
