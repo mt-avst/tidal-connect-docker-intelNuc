@@ -1,10 +1,10 @@
-FROM debian:stretch
+FROM debian:bullseye
 
 RUN apt-get update -y -q && apt-get upgrade -y -q
 
 RUN apt install --fix-missing --fix-broken -y -q \
     git \
-    libavformat57 \
+    libavformat58 \
     libportaudio2 \
     libflac++6v5 \
     libavahi-common3 \
